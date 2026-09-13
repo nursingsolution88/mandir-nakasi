@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>श्री शंकर मेघवाल - मंदिर निर्माण एवं पाषाण हस्तकला नक्काशी कार्य</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Noto Sans Devanagari) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #5c1d09;
+            --accent-color: #d4af37;
+            --bg-color: #fdfbf7;
+            --text-color: #2b2b2b;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(0,0,0,0.08);
+            --border-color: #eeddbb;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #80250a;
+            --accent-color: #f3c642;
+            --bg-color: #121212;
+            --text-color: #f1f1f1;
+            --card-bg: #1e1e1e;
+            --card-shadow: rgba(255,255,255,0.04);
+            --border-color: #333333;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--primary-color) !important;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+            font-weight: 600;
+        }
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        /* Divine Glow */
+        @keyframes divineGlow {
+            0%, 100% { text-shadow: 0 0 5px var(--accent-color); }
+            50% { text-shadow: 0 0 18px var(--accent-color), 0 0 28px var(--accent-color); }
+        }
+        .blinking-glow {
+            animation: divineGlow 3s infinite;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)), 
+                        url('https://blogger.googleusercontent.com/img/a/AVvXsEhEUftFyVM_HCXgQU9J7u5gdLi6HvYeb32HI1ItFP5B9xGMrGTb4iFTh0rQjg8UoiqkwJKJYwnWFjVn8Y_pJOETbs2aLlb5e12cP33Mo9vxDPTPpnTekWXLthFmzdL7BjsXKtkzIQFVnp4CCwAh7N95zVRqnRs-LIOFVx2eHKfm_P-CghT-TL-fJgQ7V8w') no-repeat center center/cover;
+            color: white;
+            padding: 140px 0 110px 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            color: var(--accent-color);
+            font-weight: 800;
+        }
+
+        /* Buttons */
+        .btn-gold {
+            background-color: var(--accent-color);
+            color: #000;
+            font-weight: 700;
+            border: none;
+            transition: all 0.2s;
+        }
+        .btn-gold:hover {
+            background-color: #c19b2e;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* Section Title */
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 800;
+            position: relative;
+            margin-bottom: 45px;
+        }
+        [data-theme="dark"] .section-title {
+            color: var(--accent-color);
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Cards */
+        .custom-card {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--card-bg);
+            color: var(--text-color);
+            box-shadow: 0 5px 18px var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+        .custom-card:hover {
+            transform: translateY(-6px);
+        }
+
+        /* Contractor Profile Card */
+        .contractor-img-wrapper {
+            position: relative;
+            display: inline-block;
+            padding: 8px;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            border-radius: 50%;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+        }
+        .contractor-img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #fff;
+        }
+
+        /* Before & After Interactive Slider */
+        .ba-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 460px;
+            margin: auto;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .ba-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            user-select: none;
+        }
+        .ba-img-after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 50%;
+            overflow: hidden;
+        }
+        .ba-slider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            opacity: 0;
+            cursor: ew-resize;
+            z-index: 20;
+        }
+        .ba-divider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--accent-color);
+            z-index: 10;
+            pointer-events: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.6);
+        }
+        .ba-divider-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
+            background: var(--accent-color);
+            border: 3px solid #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .ba-badge {
+            position: absolute;
+            top: 15px;
+            padding: 6px 14px;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            z-index: 5;
+        }
+        .ba-badge-left { left: 15px; }
+        .ba-badge-right { right: 15px; }
+
+        /* Gallery Images */
+        .gallery-img {
+            height: 270px;
+            object-fit: cover;
+            width: 100%;
+            transition: transform 0.5s ease;
+        }
+        .custom-card:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .float-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: #FFF;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .float-btn:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+        .whatsapp-bg { background-color: #25d366; }
+        .call-bg { background-color: #007bff; }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            cursor: pointer;
+            background: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            border-radius: 50px;
+            padding: 5px 15px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .theme-toggle:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .ba-container { height: 300px; }
+            .contractor-img { width: 170px; height: 170px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- नेविगेशन बार -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand blinking-glow" href="#"><i class="fa-solid fa-gopuram text-warning me-2"></i> श्री मंदिर शिल्प एवं निर्माण</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarNav">
+                <ul class="navbar-nav me-3">
+                    <li class="nav-item"><a class="nav-link" href="#home">मुख्य पृष्ठ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contractor">शिल्पकार परिचय</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#before-after">कारीगरी का जादू</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#calculator">लागत कैलकुलेटर</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">कार्य गैलरी</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">लोकेशन एवं संपर्क</a></li>
+                </ul>
+                <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()">
+                    <i class="fa-solid fa-moon me-1" id="themeIcon"></i> डार्क मोड
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- मुख्य बैनर (Hero Section) -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="display-4 mb-3 blinking-glow">पारंपरिक हस्तनिर्मित मंदिर निर्माण एवं पाषाण शिल्प</h1>
+            <p class="lead mb-4 fs-4">मुख्य ठेकेदार: <strong>शंकर मेघवाल</strong> | हाथ से तराशे गए मजबूत पाषाण खंभे, भव्य शिखर एवं बारीक हस्तकला नक्काशी (मक्काशी)</p>
+            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                <a href="#calculator" class="btn btn-gold btn-lg px-4 py-2"><i class="fa-solid fa-calculator me-2"></i>अनुमानित खर्च जानें</a>
+                <a href="tel:+919928689235" class="btn btn-warning btn-lg px-4 py-2 text-dark fw-bold"><i class="fa-solid fa-phone me-2"></i>कॉल: 99286 89235</a>
+                <a href="https://wa.me/919928689235" target="_blank" class="btn btn-outline-light btn-lg px-4 py-2"><i class="fa-brands fa-whatsapp me-2"></i>व्हाट्सएप चैट</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- आँकड़े (Stats Counter) -->
+    <div class="container my-5">
+        <div class="p-4 text-center text-white rounded-3 shadow" style="background: var(--primary-color);">
+            <div class="row g-3">
+                <div class="col-md-3 col-6">
+                    <h2 class="fw-bold text-warning mb-1">15+</h2>
+                    <p class="mb-0">वर्षों का गहरा अनुभव</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h2 class="fw-bold text-warning mb-1">60+</h2>
+                    <p class="mb-0">मंदिर व खंभा प्रोजेक्ट्स</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h2 class="fw-bold text-warning mb-1">100%</h2>
+                    <p class="mb-0">हस्तनिर्मित छेनी-हथौड़ा शिल्प</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h2 class="fw-bold text-warning mb-1">पारंपरिक पाषाण</h2>
+                    <p class="mb-0">बंसी पहाड़पुर व मार्बल</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- मुख्य ठेकेदार एवं शिल्पकार परिचय (Contractor Profile Section) -->
+    <section id="contractor" class="py-5">
+        <div class="container">
+            <div class="custom-card p-4 p-md-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                        <div class="contractor-img-wrapper">
+                            <!-- ठेकेदार श्री शंकर मेघवाल जी की वास्तविक फोटो -->
+                            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEg5nHkiTiGIwd2gOLKBGpPbq7AQAP8RObqICttlJ1WSg-4kqwZNwCgNe9wzPHh-edSBHkH7yD7V4O5vq0F1e3rC0sTiGbaUYl0ISWfA7X9p8WiVOsUScvFdyOH0FEj8fpcTLFHd2HJCzG8_KRs43K2jCzrEuMJP1f7-0g0vEIAVvU-cBzsAhdKkIv09Fvs" alt="ठेकेदार शंकर मेघवाल" class="contractor-img">
+                        </div>
+                        <h3 class="fw-bold mt-3 mb-1 text-warning">शंकर मेघवाल</h3>
+                        <p class="text-muted fw-bold mb-2">मुख्य ठेकेदार एवं पाषाण शिल्पकार</p>
+                        <span class="badge bg-warning text-dark px-3 py-2 fs-6">15+ वर्षों की सेवा व अनुभव</span>
+                    </div>
+                    <div class="col-lg-8 ps-lg-4">
+                        <h2 class="section-title text-start mb-3">परंपरा, भक्ति एवं प्रामाणिक शिल्प</h2>
+                        <p class="text-muted fs-5">प्रणाम! मैं <strong>शंकर मेघवाल</strong>, वर्षों से भारतीय पारंपरिक मंदिर निर्माण, पाषाण तराशी तथा हाथ से खंभे व मक्काशी (नक्काशी) उकेरने का कार्य निष्ठापूर्वक करता आ रहा हूँ।</p>
+                        <p class="text-muted fs-5">कठोर सैंडस्टोन और मार्बल को छेनी-हथौड़े से तराशकर देव-मंदिर, अष्टकोण खंभे, भव्य गर्भगृह और शास्त्रसम्मत शिखर का स्वरूप देना हमारी पारिवारिक परंपरा और कला है। हम हर प्रोजेक्ट को मंदिर समिति और यजमान की इच्छा अनुसार समय पर व पूरी शुद्धता के साथ पूरा करते हैं।</p>
+                        <div class="d-flex gap-3 mt-4 flex-wrap">
+                            <a href="tel:+919928689235" class="btn btn-gold px-4 py-2"><i class="fa-solid fa-phone me-2"></i>सीधी बात करें</a>
+                            <a href="#contact" class="btn btn-outline-secondary px-4 py-2"><i class="fa-solid fa-map-location-dot me-2"></i>कार्यशाला लोकेशन देखें</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. कारीगरी का जादू: Before & After Slider -->
+    <section id="before-after" class="py-5" style="background: rgba(0,0,0,0.02);">
+        <div class="container text-center">
+            <h2 class="section-title">कारीगरी का सजीव प्रमाण</h2>
+            <p class="lead mb-4">स्लाइडर को बीच से दाएं-बाएं खिसकाकर देखें: मंदिर निर्माण के विभिन्न चरण और तैयार नक्काशीदार संरचना।</p>
+            
+            <div class="ba-container" id="baContainer">
+                <!-- Right Image: Construction Phase -->
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgZNBOkrs8vV4gpYTzmJFUJLKtrkkGIQDIieOV-DWyEMXsjXNDKqFGlVvYyKaNys3WIkmLl3_qPirJQBwaSwA7cfeSlB9YYbFOHo3YkeLi6YdjcWVFOif5ETVKZ0km2A3dy2joD5DMpawj1H13VADlXZ8dmu4rpXSlTEJiq8nPapcSynvS1MEcKPcI5PLw" alt="मंदिर निर्माण चरण">
+                <span class="ba-badge ba-badge-right">1. मंदिर निर्माण कार्य (Structure)</span>
+
+                <!-- Left Image: Finished Carved Temple Structure -->
+                <div class="ba-img-after" id="baAfter">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiLis5lDXpgv3AZM9m1K6DhZ7H9CSpdofDfZ9bRwfzheYvxrWn225k-o23xn9jfjO_QtGjBqG1PAtIteD0FNkh6d8sLMdTtLVjeNzWMtZsBQtVXNq-5TGHlmq0RoF7CM1dPzqE-5ddnCikIz0AlD5G2uNNbcGwXJ_GnPBCiu4yZN8kGFGEQKv2-lYXvwlM" alt="तैयार नक्काशीदार संरचना">
+                    <span class="ba-badge ba-badge-left">2. तैयार पाषाण शिल्प (Carved)</span>
+                </div>
+
+                <!-- Divider Line -->
+                <div class="ba-divider" id="baDivider">
+                    <div class="ba-divider-handle"><i class="fa-solid fa-arrows-left-right"></i></div>
+                </div>
+
+                <!-- Range Input Slider -->
+                <input type="range" min="0" max="100" value="50" class="ba-slider" id="baSlider" oninput="slideBeforeAfter(this.value)">
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. लागत अनुमान कैलकुलेटर -->
+    <section id="calculator" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">मंदिर खंभा लागत कैलकुलेटर</h2>
+            <p class="text-center text-muted mb-4 fs-5">अपनी आवश्यकता चुनें और तुरंत अनुमानित बजट एवं कोटेशन प्रस्ताव प्राप्त करें।</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="custom-card p-4 p-md-5">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">पाषाण (पत्थर) का प्रकार चुनें:</label>
+                                <select class="form-select form-select-lg" id="stoneType" onchange="calculateEstimate()">
+                                    <option value="bansi" data-rate="3200">बंसी पहाड़पुर गुलाबी पाषाण (राम मंदिर शैली)</option>
+                                    <option value="makrana" data-rate="4200">मकराना शुद्ध श्वेत संगमरमर (मार्बल)</option>
+                                    <option value="jodhpur" data-rate="2400">जोधपुर छित्तर सैंडस्टोन (पारंपरिक)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">नक्काशी का स्तर (Detailing):</label>
+                                <select class="form-select form-select-lg" id="carvingLevel" onchange="calculateEstimate()">
+                                    <option value="1" data-mult="1.0">सामान्य पारंपरिक नक्काशी (Simple Base/Top)</option>
+                                    <option value="2" data-mult="1.35" selected>मध्यम अलंकृत नक्काशी (बेल-बूटे, अष्टकोण)</option>
+                                    <option value="3" data-mult="1.75">अति-बारीक देव आकृतियां एवं 3D नक्काशी</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">खंभे की ऊंचाई (फीट):</label>
+                                <input type="number" class="form-control form-control-lg" id="pillarHeight" value="9" min="6" max="25" oninput="calculateEstimate()">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">कुल खंभों की संख्या:</label>
+                                <input type="number" class="form-control form-control-lg" id="pillarCount" value="4" min="1" max="100" oninput="calculateEstimate()">
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <!-- Result Display -->
+                        <div class="text-center p-3 rounded-3" style="background: rgba(212, 175, 55, 0.15); border: 2px dashed var(--accent-color);">
+                            <h5 class="fw-bold mb-1">अनुमानित सामग्री व कारीगरी बजट:</h5>
+                            <h2 class="fw-bold text-danger mb-1" id="totalEstimateDisplay">₹1,16,640*</h2>
+                            <small class="text-muted">*यह एक प्रारंभिक अनुमान है। वास्तविक स्थल व विस्तृत डिजाइन के आधार पर दरें तय होती हैं।</small>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="d-flex gap-3 justify-content-center mt-4 flex-wrap">
+                            <button class="btn btn-gold btn-lg px-4" onclick="sendWhatsAppQuote()">
+                                <i class="fa-brands fa-whatsapp me-2"></i>व्हाट्सएप पर प्रस्ताव भेजें
+                            </button>
+                            <button class="btn btn-outline-secondary btn-lg px-4" onclick="window.print()">
+                                <i class="fa-solid fa-print me-2"></i>प्रस्ताव प्रिंट / PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. हमारे वास्तविक कार्यों की गैलरी -->
+    <section id="gallery" class="py-5" style="background: rgba(0,0,0,0.02);">
+        <div class="container">
+            <h2 class="text-center section-title">हमारे वास्तविक कार्यों की गैलरी</h2>
+            <p class="text-center text-muted mb-5 fs-5">शंकर मेघवाल जी द्वारा निर्मित भव्य मंदिर, नक्काशीदार खंभे, शिखर व पाषाण शिल्प</p>
+            
+            <div class="row g-4">
+                <!-- Photo 1 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="custom-card overflow-hidden h-100">
+                        <div style="overflow:hidden;">
+                            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiLis5lDXpgv3AZM9m1K6DhZ7H9CSpdofDfZ9bRwfzheYvxrWn225k-o23xn9jfjO_QtGjBqG1PAtIteD0FNkh6d8sLMdTtLVjeNzWMtZsBQtVXNq-5TGHlmq0RoF7CM1dPzqE-5ddnCikIz0AlD5G2uNNbcGwXJ_GnPBCiu4yZN8kGFGEQKv2-lYXvwlM" class="gallery-img" alt="नक्काशीदार पाषाण आधार व खंभा">
+                        </div>
+                        <div class="p-3 text-center">
+                            <h5 class="mb-1 fw-bold">पाषाण खंभा व नक्काशी आधार</h5>
+                            <small class="text-muted">हाथ से तराशा गया अष्टकोण शिल्प</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="custom-card overflow-hidden h-100">
+                        <div style="overflow:hidden;">
+                            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgAAbpodTZt0snUbmRH4vruV2Qzp7OMIMU9UezMAjOVeV1chdNBiN36bC_x5IqkRApItH2pghOYMZiNFPNpS_ItmXehmy_f2fIo3nAHHixYCc-7v5KYozxTQ6ZiitYiD5_YD1eozLMLW0d-Afof9OSmNVCLQ-CheHh0fw_xCbdfEyHVxTIH5AtLcO-6Lu8" class="gallery-img" alt="भव्य मंदिर शिखर">
+                        </div>
+                        <div class="p-3 text-center">
+                            <h5 class="mb-1 fw-bold">भव्य मंदिर शिखर वास्तुकला</h5>
+                            <small class="text-muted">नागर शैली पारंपरिक शिखर निर्माण</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="custom-card overflow-hidden h-100">
+                        <div style="overflow:hidden;">
+                            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhfG8RJN0LxK1Don8O_0SKqpq0UczxdPbKY4H6Z5XZGEvoIeDIegPF9efvpbBHeqHbkdo6BCPd-xcXzbP7fsV1_Sw_o247RrEJVf6v6K1tGOHS0dm9od5x_KsPXpq3CWjNDnWwNG5DQNPr1rRZ2tYDSG0vbXkXAUBamNUFDcaBA4C5KVxbodgbNMU1hC6k" class="gallery-img" alt="मंदिर मंडप व परिक्रमा">
+                        </div>
+                        <div class="p-3 text-center">
+                            <h5 class="mb-1 fw-bold">मंदिर मंडप एवं प्राकार</h5>
+                            <small class="text-muted">विशाल परिसर व प्रवेश द्वार</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="custom-card overflow-hidden h-100">
+                        <div style="overflow:hidden;">
+                            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEh3VqBtv2dufLSTq7SPAaRZao6AtwqYUctUmUJiHrrYv7TCdAWoQzISHgLQGX2Xc9JkzuTKkfl832sjSefaX4g5vNAG0M7P-f6wFElpsoYPbPG3unnldQ_yP1VAJvXK-HC4jfe27cyQx31OvOfX7a9fAinzHnYjDG4Xqf3f3N_YJnqkCuXMTEdOKTqC7JA" class="gallery-img" alt="शिखर बारीक नक्काशी">
+                        </div>
+                        <div class="p-3 text-center">
+                            <h5 class="mb-1 fw-bold">शिखर एवं जाली नक्काशी</h5>
+                            <small class="text-muted">शास्त्रसम्मत खाका व बारीक कटिंग</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 5 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="custom-card overflow-hidden h-100">
+                        <div style="overflow:hidden;">
+                            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgpYch4xA4KvWCOTrp5SyPy58PjTZgxyPE2r9_UVmmAw2GPetq4gzoWFJmfATvXli02JywhB_Uc8Xcw_vypCItqvi-ZX3G1htGV4vQVv2oOxtCV0zTK-0DU1Zn9YQ_REBYrLUC394R7HHQng4IUoc62TtBhhJCmEeShtfKrTeju2HBNIR43NRJQmo9Ov5I" class="gallery-img" alt="तोरण द्वार व मंडप">
+                        </div>
+                        <div class="p-3 text-center">
+                            <h5 class="mb-1 fw-bold">तोरण द्वार एवं गर्भगृह</h5>
+                            <small class="text-muted">अलंकृत द्वार व तोरण शिल्प</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 6 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="custom-card overflow-hidden h-100">
+                        <div style="overflow:hidden;">
+                            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjYz8DO5tgXj6aQwaXwqBDHoAojnoz-p2BL38tvo3sA92rxOEq4YecC217_40KtYg6xsggotSl4aSRpUd1IBPBzA4AifEr5SVBqY7ZvWoQdpP2koMzXv2Ts_MiHs16oICuhKbSgzzszKkkyIdqBjpXkdpygwAy403BkqK4zHKFpCu9ZcnVGMqhnDSpztzE" class="gallery-img" alt="मंदिर सम्मुख दृश्य">
+                        </div>
+                        <div class="p-3 text-center">
+                            <h5 class="mb-1 fw-bold">मंदिर सम्मुख प्रांगण</h5>
+                            <small class="text-muted">श्री राजीव लोचन मंदिर निर्माण</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. लोकेशन एवं संपर्क (Interactive Google Map with Exact Coordinates) -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">कार्यशाला भ्रमण एवं संपर्क सूत्र</h2>
+            <p class="text-center lead mb-5">आप स्वयं हमारी कार्यशाला पधारकर पत्थरों पर हाथ से होती नक्काशी और काम की गुणवत्ता देख सकते हैं।</p>
+            
+            <div class="row g-4 align-items-stretch">
+                <!-- Contact Info Cards -->
+                <div class="col-lg-5">
+                    <div class="d-flex flex-column gap-3 h-100">
+                        <div class="custom-card p-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fa-solid fa-user-tie fs-3 text-warning me-3"></i>
+                                <div>
+                                    <h5 class="fw-bold mb-0">मुख्य ठेकेदार</h5>
+                                    <p class="text-muted mb-0 fs-5">शंकर मेघवाल</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="custom-card p-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fa-solid fa-phone fs-3 text-primary me-3"></i>
+                                <div>
+                                    <h5 class="fw-bold mb-0">फोन नंबर (कॉल)</h5>
+                                    <a href="tel:+919928689235" class="text-decoration-none fw-bold fs-5 text-dark">+91 99286 89235</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="custom-card p-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fa-brands fa-whatsapp fs-3 text-success me-3"></i>
+                                <div>
+                                    <h5 class="fw-bold mb-0">व्हाट्सएप</h5>
+                                    <a href="https://wa.me/919928689235" target="_blank" class="text-decoration-none fw-bold fs-5 text-success">+91 99286 89235</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="custom-card p-4">
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fa-solid fa-location-dot fs-3 text-danger me-3 mt-1"></i>
+                                <div>
+                                    <h5 class="fw-bold mb-1">कार्यशाला का सटीक पता</h5>
+                                    <p class="text-muted mb-1">स्थान निर्देशांक (GPS): <strong>24.4513420, 74.3918130</strong></p>
+                                    <small class="text-muted">राजस्थान, भारत</small>
+                                </div>
+                            </div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=24.4513420,74.3918130" target="_blank" class="btn btn-warning w-100 fw-bold text-dark">
+                                <i class="fa-solid fa-diamond-turn-right me-2"></i>गूगल मैप पर रास्ता देखें (Navigate)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Embedded Google Map -->
+                <div class="col-lg-7">
+                    <div class="custom-card p-2 h-100 overflow-hidden shadow-lg">
+                        <iframe 
+                            src="https://maps.google.com/maps?q=24.4513420,74.3918130&hl=hi&z=15&output=embed" 
+                            width="100%" 
+                            height="100%" 
+                            style="min-height: 400px; border:0; border-radius: 10px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- फुटर -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-1">&copy; 2026 शंकर मेघवाल - श्री मंदिर निर्माण एवं पाषाण हस्तकला नक्काशी कार्य। सर्वाधिकार सुरक्षित।</p>
+            <p class="small text-warning">पारंपरिक भारतीय मंदिर वास्तुकला एवं शुद्ध पाषाण शिल्प</p>
+        </div>
+    </footer>
+
+    <!-- फ्लोटिंग बटन (Call & WhatsApp) -->
+    <div class="floating-buttons">
+        <a href="tel:+919928689235" class="float-btn call-bg" title="कॉल करें">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <a href="https://wa.me/919928689235" target="_blank" class="float-btn whatsapp-bg" title="व्हाट्सएप">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // 1. Dark/Light Mode
+        function toggleTheme() {
+            const htmlTag = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+            if (htmlTag.getAttribute('data-theme') === 'light') {
+                htmlTag.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fa-solid fa-sun me-1';
+                themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun me-1" id="themeIcon"></i> लाइट मोड';
+            } else {
+                htmlTag.setAttribute('data-theme', 'light');
+                themeIcon.className = 'fa-solid fa-moon me-1';
+                themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon me-1" id="themeIcon"></i> डार्क मोड';
+            }
+        }
+
+        // 2. Before & After Slider
+        function slideBeforeAfter(val) {
+            document.getElementById('baAfter').style.width = val + '%';
+            document.getElementById('baDivider').style.left = val + '%';
+        }
+
+        // 3. Cost Estimator Calculation
+        let calculatedTotal = 116640;
+        function calculateEstimate() {
+            const stoneSelect = document.getElementById('stoneType');
+            const baseRate = parseFloat(stoneSelect.options[stoneSelect.selectedIndex].getAttribute('data-rate'));
+            
+            const carvingSelect = document.getElementById('carvingLevel');
+            const multiplier = parseFloat(carvingSelect.options[carvingSelect.selectedIndex].getAttribute('data-mult'));
+
+            const height = parseFloat(document.getElementById('pillarHeight').value) || 0;
+            const count = parseFloat(document.getElementById('pillarCount').value) || 0;
+
+            calculatedTotal = Math.round(baseRate * multiplier * height * count);
+            document.getElementById('totalEstimateDisplay').innerText = '₹' + calculatedTotal.toLocaleString('en-IN') + '*';
+        }
+
+        // 4. Send Quote to WhatsApp
+        function sendWhatsAppQuote() {
+            const stoneName = document.getElementById('stoneType').options[document.getElementById('stoneType').selectedIndex].text;
+            const carvingLevel = document.getElementById('carvingLevel').options[document.getElementById('carvingLevel').selectedIndex].text;
+            const height = document.getElementById('pillarHeight').value;
+            const count = document.getElementById('pillarCount').value;
+
+            const msg = `प्रणाम शंकर जी! मुझे मंदिर के खंभों एवं निर्माण कार्य हेतु कोटेशन चाहिए:\n` +
+                        `- पत्थर: ${stoneName}\n` +
+                        `- नक्काशी: ${carvingLevel}\n` +
+                        `- खंभे की ऊंचाई: ${height} फीट\n` +
+                        `- खंभों की संख्या: ${count}\n` +
+                        `- वेबसाइट अनुमानित बजट: ₹${calculatedTotal.toLocaleString('en-IN')}\n\nकृपया वास्तविक डिजाइन और समय सीमा की जानकारी दें।`;
+
+            const url = `https://wa.me/919928689235?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+
+        // Initialize calculation on load
+        calculateEstimate();
+    </script>
+</body>
+</html>
